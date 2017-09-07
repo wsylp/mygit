@@ -5,11 +5,15 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import javax.servlet.http.HttpSession;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import wsylp.filter.Pagination;
+import wsylp.filter.UserSearchFilter;
 import wsylp.log.Logger;
 import wsylp.po.User;
 import wsylp.service.UserService;
@@ -48,8 +52,6 @@ public class UserController extends BaseController {
     }
 
 
-
-
     @RequestMapping("/index.html")
     public String index() {
         return "index";
@@ -77,7 +79,7 @@ public class UserController extends BaseController {
         User loginUser = userService.getUserLogin(user.getLoginName(), user.getPassword());
         if (loginUser != null) {
             logger.info("将用户存放到session中!");
-            request.getSession().setAttribute("user",loginUser);
+            request.getSession().setAttribute("user", loginUser);
             return "index";
         } else {
             return "login";
@@ -88,17 +90,54 @@ public class UserController extends BaseController {
     @RequestMapping("/user_getUserList")
     @ResponseBody
     public String getUserList() {
-        String search = request.getParameter("search[value]");
-        String draw = request.getParameter("draw");
-        String order = request.getParameter("order[0][column]");
-        String orderDir = request.getParameter("order[0][dir]");
-        String startRec = request.getParameter("start");
-        String pageSize = request.getParameter("length");
-        List<User> users = userService.getUserList();
-        HashMap<String, Object> map = new HashMap<String, Object>();
-        map.put("data", users);
-        String json = JSON.toJSONString(map);
-        return json;
+        try {
+            String limit = request.getParameter("limit");
+            String start = request.getParameter("start");
+            String page = request.getParameter("page");
+            String startTime = request.getParameter("startTime");
+            String endTime = request.getParameter("endTime");
+            String workAddress = request.getParameter("workAddress");
+            String workType = request.getParameter("workType");
+            String level = request.getParameter("level");
+            String realName = request.getParameter("realName");
+            String loginName = request.getParameter("loginName");
+            UserSearchFilter filter = new UserSearchFilter();
+            filter.setLoginName(loginName);
+            filter.setRealName(realName);
+            if (!"".equals(StringUtils.trimToEmpty(level))) {
+                filter.setLevel(Integer.parseInt(level));
+            }
+
+            filter.setWorkAddress(workAddress);
+            filter.setWorkType(workType);
+            Pagination pagination = new Pagination();
+            if (!"".equals(StringUtils.trimToEmpty(limit))) {
+                pagination.setLimit(Integer.parseInt(limit));
+            }
+            if (!"".equals(StringUtils.trimToEmpty(page))) {
+                pagination.setPage(Integer.parseInt(page));
+            }
+            if (!"".equals(StringUtils.trimToEmpty(start))) {
+                pagination.setStart(Integer.parseInt(start));
+            }
+
+            List<User> users = userService.getUserListByFP(filter, pagination);
+            long count = userService.countGetUserListByFP(filter);
+            HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put("data", users);
+            map.put("recordsTotal", count);
+            map.put("recordsFiltered", count);
+            String json = JSON.toJSONString(map);
+            return json;
+        } catch (Exception e) {
+            e.printStackTrace();
+            HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put("data", null);
+            map.put("recordsTotal", -1);
+            map.put("recordsFiltered", -1);
+            String json = JSON.toJSONString(map);
+            return json;
+        }
     }
 
 

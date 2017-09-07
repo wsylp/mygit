@@ -375,46 +375,45 @@ License: You must have a valid license purchased only from themeforest(the above
                             <!-- Brand and toggle get grouped for better mobile display -->
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <ul class="nav navbar-nav margin-bottom-35">
-                                <li class="active">
+                                <li>
                                     <a href="index.html">
-                                        <i class="icon-home"></i> Home </a>
+                                        <i class="icon-home"></i> 首页 </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <i class="icon-note "></i> Reports </a>
+                                        <i class="icon-note "></i> 新增问答 </a>
+                                </li>
+                                <li class="active">
+                                    <a href="#">
+                                        <i class="icon-user"></i>我的问答 </a>
+                                </li>
+                                <li>
+                                    <a href="#"> <i class="icon-basket "></i> 回收站 </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <i class="icon-user"></i> User Activity </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="icon-basket "></i> Marketplace </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="icon-bell"></i> Templates </a>
+                                        <i class="icon-bell"></i> 草稿箱 </a>
                                 </li>
                             </ul>
                             <h3>Quick Actions</h3>
                             <ul class="nav navbar-nav">
                                 <li>
                                     <a href="#">
-                                        <i class="icon-envelope "></i> Inbox
+                                        <i class="icon-envelope "></i> 收件箱
                                         <label class="label label-danger">New</label>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <i class="icon-paper-clip "></i> Task </a>
+                                        <i class="icon-paper-clip "></i> 任务 </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <i class="icon-star"></i> Projects </a>
+                                        <i class="icon-star"></i> 收藏 </a>
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <i class="icon-pin"></i> Events
+                                        <i class="icon-pin"></i> 通知
                                         <span class="badge badge-success">2</span>
                                     </a>
                                 </li>
@@ -426,17 +425,11 @@ License: You must have a valid license purchased only from themeforest(the above
                         <!-- BEGIN PAGE BASE CONTENT -->
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="note note-danger">
-                                    <p> NOTE: The below datatable is not connected to a real
-                                        database so the filter and sorting is just simulated for
-                                        demo purposes only. </p>
-                                </div>
-                                <!-- Begin: Demo Datatable 1 -->
                                 <div class="portlet light portlet-fit portlet-datatable bordered">
                                     <div class="portlet-title">
                                         <div class="caption">
                                             <i class="icon-settings font-dark"></i>
-                                            <span class="caption-subject font-dark sbold uppercase">Ajax Datatable</span>
+                                            <span class="caption-subject font-dark sbold uppercase">用户数据</span>
                                         </div>
                                         <div class="actions">
                                             <div class="btn-group btn-group-devided"
@@ -478,7 +471,6 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <div class="portlet-body">
                                         <div class="table-container">
                                             <div class="table-actions-wrapper">
-                                                <span> </span>
                                                 <select class="table-group-action-input form-control input-inline input-small input-sm">
                                                     <option value="">Select...</option>
                                                     <option value="Cancel">Cancel</option>
@@ -494,32 +486,71 @@ License: You must have a valid license purchased only from themeforest(the above
                                                    id="datatable_ajax">
                                                 <thead>
                                                 <tr role="row" class="heading">
-                                                    <th width="5%"> 序号</th>
-                                                    <th width="5%"> id</th>
-                                                    <th width="10%"> 登录名</th>
+                                                    <th width="2%"> 序号</th>
+                                                    <th width="8%"> 登录名</th>
                                                     <th width="10%"> 姓名</th>
-                                                    <th width="10%"> 手机号</th>
-                                                    <th width="10%"> 身份证</th>
                                                     <th width="10%"> 等级</th>
-                                                    <th width="10%"> 家庭地址</th>
                                                     <th width="10%"> 工作地址</th>
                                                     <th width="10%"> 工作性质</th>
                                                     <th width="10%"> 创建时间</th>
                                                     <th width="10%"> 更新时间</th>
+                                                    <th width="10%"> 操作</th>
                                                 </tr>
                                                 <tr role="row" class="filter">
                                                     <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td><input type="text"
+                                                               class="form-control form-filter input-sm"
+                                                               name="loginName" id="loginName"></td>
+                                                    <td><input type="text"
+                                                               class="form-control form-filter input-sm"
+                                                               name="realName" id="realName"></td>
+                                                    <td><input type="text"
+                                                               class="form-control form-filter input-sm"
+                                                               name="level" id="level"></td>
+                                                    <td><input type="text"
+                                                               class="form-control form-filter input-sm"
+                                                               name="workAddress" id="workAddress"></td>
+                                                    <td><input type="text"
+                                                               class="form-control form-filter input-sm"
+                                                               name="workType"></td>
+                                                    <td>
+                                                        <div class="input-group date date-picker margin-bottom-5"
+                                                             data-date-format="dd/mm/yyyy">
+                                                            <input type="text"
+                                                                   class="form-control form-filter input-sm"
+                                                                   readonly name="startTime" id="startTime"
+                                                                   placeholder="From">
+                                                            <span class="input-group-btn">
+                                                                    <button class="btn btn-sm default"
+                                                                            type="button">
+                                                                        <i class="fa fa-calendar"></i>
+                                                                    </button>
+                                                                </span>
+                                                        </div>
+                                                        <div class="input-group date date-picker"
+                                                             data-date-format="dd/mm/yyyy">
+                                                            <input type="text"
+                                                                   class="form-control form-filter input-sm"
+                                                                   readonly name="endtime" id="endTime"
+                                                                   placeholder="To">
+                                                            <span class="input-group-btn">
+                                                                    <button class="btn btn-sm default"
+                                                                            type="button">
+                                                                        <i class="fa fa-calendar"></i>
+                                                                    </button>
+                                                                </span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                        <div class="margin-bottom-5">
+                                                            <button class="btn btn-sm green btn-outline filter-submit margin-bottom">
+                                                                <i class="fa fa-search"></i> Search</button>
+                                                        </div>
+                                                        <button class="btn btn-sm red btn-outline filter-cancel">
+                                                            <i class="fa fa-times"></i> Reset</button>
+                                                    </td>
                                                 </tr>
                                                 </thead>
                                                 <tbody></tbody>
@@ -1178,6 +1209,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <%@ include file="../comm/quickNav.jsp" %>
 <script src="resources/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="resources/js/moment.js" type="text/javascript"></script>
 <script src="resources/js/myQuestion.js" type="text/javascript"></script>
 <script src="resources/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"
         type="text/javascript"></script>

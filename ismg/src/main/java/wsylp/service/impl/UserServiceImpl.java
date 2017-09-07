@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import wsylp.dao.UserMapper;
+import wsylp.filter.Pagination;
+import wsylp.filter.UserSearchFilter;
 import wsylp.log.Logger;
 import wsylp.po.User;
 import wsylp.service.UserService;
@@ -40,9 +42,15 @@ public class UserServiceImpl implements UserService {
         return users;
     }
 
+    @Override
+    public List<User> getUserListByFP(UserSearchFilter filter, Pagination pagination) {
+        List<User> users = userDao.getUserListByFP(filter,pagination);
+        return users;
+    }
 
-
-
-
-
+    @Override
+    public long countGetUserListByFP(UserSearchFilter filter) {
+        long count = userDao.countUserListByFP(filter);
+        return count;
+    }
 }

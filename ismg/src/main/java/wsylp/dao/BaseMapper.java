@@ -1,5 +1,10 @@
 package wsylp.dao;
 
+import java.util.List;
+import wsylp.filter.Pagination;
+import wsylp.filter.UserSearchFilter;
+import wsylp.po.User;
+
 /**
  * Created by wsylp on 2017/5/30.
  */
@@ -16,4 +21,5 @@ public interface BaseMapper<T> {
     int updateByPrimaryKeySelective(T obj);
 
     int updateByPrimaryKey(T obj);
+
 }

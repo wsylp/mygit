@@ -15,7 +15,7 @@ public class User {
 
     private String idCard;
 
-    private Long leavel;
+    private Long level;
 
     private String familyAdress;
 
@@ -75,12 +75,12 @@ public class User {
         this.idCard = idCard == null ? null : idCard.trim();
     }
 
-    public Long getLeavel() {
-        return leavel;
+    public Long getLevel() {
+        return level;
     }
 
-    public void setLeavel(Long leavel) {
-        this.leavel = leavel;
+    public void setLevel(Long level) {
+        this.level = level;
     }
 
     public String getFamilyAdress() {
