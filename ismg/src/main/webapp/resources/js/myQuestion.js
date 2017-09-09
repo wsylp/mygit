@@ -1,19 +1,14 @@
 var TableDatatablesAjax = function () {
-
   var initPickers = function () {
     $('.date-picker').datepicker({
       rtl: App.isRTL(),
       autoclose: true
     });
   }
-
   var handleDemo1 = function () {
-
     var grid = new Datatable();
-
     grid.init({
       src: $("#datatable_ajax"),
-
       onSuccess: function (grid, response) {
       },
       onError: function (grid) {
@@ -21,8 +16,6 @@ var TableDatatablesAjax = function () {
       onDataLoad: function (grid) {
       },
       loadingMessage: '加载中.......',
-      //提示信息
-
       dataTable: {
         language: {
           "sProcessing": "处理中...",
@@ -37,13 +30,6 @@ var TableDatatablesAjax = function () {
           "sEmptyTable": "表中数据为空",
           "sLoadingRecords": "载入中...",
           "sInfoThousands": ",",
-          "oPaginate": {
-            //"sFirst": "首页",
-            "sPrevious": "上页",
-            "sNext": "下页"
-            //"sLast": "末页"
-          },
-
           "oAria": {
             "sSortAscending": ": 以升序排列此列",
             "sSortDescending": ": 以降序排列此列"
@@ -63,7 +49,7 @@ var TableDatatablesAjax = function () {
          < and > - DIV元素
          <"class" and > - DIV和Class
          <"#id" and > - DIV和ID*/
-       // "dom": '<lf<t>ip>',//表信息在表上面，检索条件，每页行数，处理中在表下面，并且有清除元素
+        // "dom": '<lf<t>ip>',//表信息在表上面，检索条件，每页行数，处理中在表下面，并且有清除元素
         //'dom': '<"float_left"f>r<"float_right"l>tip',
         "search": {
           "caseInsensitive": false
@@ -99,8 +85,8 @@ var TableDatatablesAjax = function () {
               //封装返回数据
               var returnData = {};
               returnData.draw = data.draw;//这里直接自行返回了draw计数器,应该由后台返回
-              returnData.recordsTotal = result.recordsTotal;//返回数据全部记录
-              returnData.recordsFiltered = result.recordsFiltered;//后台不实现过滤功能，每次查询均视作全部结果
+              returnData.recordsTotal = result.total;//返回数据全部记录
+              returnData.recordsFiltered = result.total;//后台不实现过滤功能，每次查询均视作全部结果
               returnData.data = result.data;//返回的数据列表
               //console.log(returnData);
               //调用DataTables提供的callback方法，代表数据已封装完成并传回DataTables进行渲染
@@ -111,10 +97,13 @@ var TableDatatablesAjax = function () {
         },
 
         "fnDrawCallback": function () {
-          this.api().column(0).nodes().each(function (cell, i) {
-            cell.innerHTML = i + 1;
+          var api = this.api();
+          var startIndex = api.context[0]._iDisplayStart;//获取到本页开始的条数
+          api.column(0).nodes().each(function (cell, i) {
+            cell.innerHTML = startIndex + i + 1;
           });
         },//显示序号
+
         "columns": [{
           "data": null,
           "targets": 0
@@ -194,4 +183,6 @@ var TableDatatablesAjax = function () {
 jQuery(document).ready(function () {
   TableDatatablesAjax.init();
 });
+
+
 

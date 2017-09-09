@@ -125,21 +125,24 @@ public class UserController extends BaseController {
             long count = userService.countGetUserListByFP(filter);
             HashMap<String, Object> map = new HashMap<String, Object>();
             map.put("data", users);
-            map.put("recordsTotal", count);
-            map.put("recordsFiltered", count);
+            map.put("total", count);
             String json = JSON.toJSONString(map);
             return json;
         } catch (Exception e) {
             e.printStackTrace();
             HashMap<String, Object> map = new HashMap<String, Object>();
             map.put("data", null);
-            map.put("recordsTotal", -1);
-            map.put("recordsFiltered", -1);
+            map.put("total", -1);
             String json = JSON.toJSONString(map);
             return json;
         }
     }
 
+
+    @RequestMapping("/user_userList.html")
+    public String myQuestionAndAnawer(){
+        return "/user/userList";
+    }
 
     /**
      * 返回首页
