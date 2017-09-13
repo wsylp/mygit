@@ -1,15 +1,16 @@
 package wsylp.log.schema;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import wsylp.log.Logger;
 
 /**
  * Created by wsylp on 2017/7/23.
  */
 public class LogSchema {
 
-    protected Logger logger = Logger.getLogger(this.getClass());
+    private static Logger logger = LogManager.getLogger(LogSchema.class.getName());
 
     public void logBefore(JoinPoint point) {
 

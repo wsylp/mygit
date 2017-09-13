@@ -1,5 +1,6 @@
 package wsylp.po;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class User {
@@ -23,9 +24,9 @@ public class User {
 
     private String workType;
 
-    private Date createTime;
+    private LocalDateTime createTime;
 
-    private Date updateTime;
+    private  LocalDateTime updateTime;
 
     public Long getId() {
         return id;
@@ -107,19 +108,19 @@ public class User {
         this.workType = workType == null ? null : workType.trim();
     }
 
-    public Date getCreateTime() {
+    public LocalDateTime getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(LocalDateTime createTime) {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
+    public LocalDateTime getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(LocalDateTime updateTime) {
         this.updateTime = updateTime;
     }
 }

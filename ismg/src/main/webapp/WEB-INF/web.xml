@@ -9,11 +9,6 @@
     <param-value>classpath:spring-mybatis.xml</param-value>
   </context-param>
 
-  <context-param>
-    <param-name>log4jConfigLocation</param-name>
-    <param-value>classpath:log4j.properties</param-value>
-  </context-param>
-
 
   <!-- 编码过滤器 -->
   <filter>
@@ -39,6 +34,17 @@
     <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
   </listener>
 
+  <!--
+  <context-param>
+2         <param-name>log4jContextName</param-name>
+3         <param-value>star</param-value>
+4     </context-param>
+5
+6     <context-param>
+7         <param-name>log4jConfiguration</param-name>
+8         <param-value>/WEB-INF/conf/log4j2.xml</param-value>
+9     </context-param>
+  -->
 
   <!-- spring mvc servlet-->
   <servlet>

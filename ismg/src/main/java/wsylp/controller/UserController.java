@@ -6,15 +6,15 @@ import java.util.HashMap;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import wsylp.filter.Pagination;
 import wsylp.filter.UserSearchFilter;
-import wsylp.log.Logger;
 import wsylp.po.User;
 import wsylp.service.UserService;
 
@@ -24,7 +24,7 @@ import wsylp.service.UserService;
 @Controller
 public class UserController extends BaseController {
 
-    protected Logger logger = Logger.getLogger(this.getClass());
+    private static Logger logger = LogManager.getLogger(UserController.class.getName());
 
 
     /**

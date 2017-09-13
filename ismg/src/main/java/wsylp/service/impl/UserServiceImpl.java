@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import wsylp.dao.UserMapper;
 import wsylp.filter.Pagination;
 import wsylp.filter.UserSearchFilter;
-import wsylp.log.Logger;
 import wsylp.po.User;
 import wsylp.service.UserService;
 

@@ -1,8 +1,9 @@
 package wsylp.log.advisorC;
 
 import java.lang.reflect.Method;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.aop.MethodBeforeAdvice;
-import wsylp.log.Logger;
 
 
 /**
@@ -10,7 +11,7 @@ import wsylp.log.Logger;
  */
 public class LogBeforeAdvice implements MethodBeforeAdvice {
 
-    protected Logger logger = Logger.getLogger(this.getClass());
+    private static Logger logger = LogManager.getLogger(LogBeforeAdvice.class.getName());
 
     @Override
     public void before(Method method, Object[] objects, Object o) throws Throwable {

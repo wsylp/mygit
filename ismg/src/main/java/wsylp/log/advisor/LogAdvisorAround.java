@@ -2,14 +2,15 @@ package wsylp.log.advisor;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
-import wsylp.log.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Created by wsylp on 2017/7/22.
  */
 public class LogAdvisorAround implements MethodInterceptor {
 
-    protected Logger logger = Logger.getLogger(this.getClass());
+    private static Logger logger = LogManager.getLogger(LogAdvisorAround.class.getName());
 
     @Override
     public Object invoke(MethodInvocation methodInvocation) throws Throwable {

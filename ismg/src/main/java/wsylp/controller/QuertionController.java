@@ -1,9 +1,10 @@
 package wsylp.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import wsylp.log.Logger;
 import wsylp.service.UserService;
 
 /**
@@ -12,7 +13,7 @@ import wsylp.service.UserService;
 @Controller
 public class QuertionController extends BaseController {
 
-    protected Logger logger = Logger.getLogger(this.getClass());
+    private static Logger logger = LogManager.getLogger(QuertionController.class.getName());
 
 
     @RequestMapping("/question_myQuestions.html")

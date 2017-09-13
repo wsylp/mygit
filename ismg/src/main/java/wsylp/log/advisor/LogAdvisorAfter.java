@@ -1,14 +1,15 @@
 package wsylp.log.advisor;
 
 import java.lang.reflect.Method;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.aop.AfterReturningAdvice;
-import wsylp.log.Logger;
 
 /**
  * Created by wsylp on 2017/7/22.
  */
 public class LogAdvisorAfter implements AfterReturningAdvice {
-    protected Logger logger = Logger.getLogger(this.getClass());
+    private static Logger logger = LogManager.getLogger(LogAdvisorAfter.class.getName());
 
     @Override
     public void afterReturning(Object o, Method method, Object[] objects, Object o1)

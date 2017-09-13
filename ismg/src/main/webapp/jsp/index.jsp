@@ -1,49 +1,59 @@
-<%@ page language="Java" import="java.util.*" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<!-- 
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.7
-Version: 4.7
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-    <!--<![endif]-->
-    <!-- BEGIN HEAD -->
+<%--
+  Created by IntelliJ IDEA.
+  User: wsylp
+  Date: 2017/9/9
+  Time: 15:43
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>首页</title>
+    <link href="resources/bootstrap-3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="resources/css/index.css" rel="stylesheet" />
+    <script src="resources/js/jquery-3.2.1.min.js"></script>
+    <script src="resources/bootstrap-3.7/js/bootstrap.min.js"></script>
 
-    <head>
-        <meta charset="utf-8" />
-        <title>Metronic | The Ultimate Multi-purpose Bootstrap Admin Dashboard Theme | Theme #5 | Admin Dashboard 2</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <meta content="#1 selling multi-purpose bootstrap admin theme sold in themeforest marketplace packed with angularjs, material design, rtl support with over thausands of templates and ui elements and plugins to power any type of web applications including saas and admin dashboards. Preview page of Theme #5 for statistics, charts, recent events and reports"
-            name="description" />
-        <meta content="" name="author" />
-        <!-- BEGIN LAYOUT FIRST STYLES -->
-        
-        <!-- END LAYOUT FIRST STYLES -->
-        <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link href="http://localhost:8080/ismg/resources/css/commCss.css" rel="stylesheet" type="text/css" />
-        </head>
-    <!-- END HEAD -->
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">博客之声</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">首页</a></li>
+                <li><a href="#about">相关</a></li>
+                <li><a href="#contact">联系</a></li>
+                <li  class="dropdown ">
+                    <a data-toggle="collapse" data-parent="#accordion"
+                       href="#collapseOne">
+                        音乐 <b class="caret"></b>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul id="collapseOne" class="panel-collapse collapse">
+                <li><a href="#">排行榜</a></li>
+                <li><a href="#">新歌榜</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-    <body >
+<script>
+</script>
 
-
-
-
-        <script src='http://localhost:8080/ismg/resources/js/commjs.js'></script>
-
-
-    </body>
-
+</body>
 </html>

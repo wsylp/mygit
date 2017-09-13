@@ -1,5 +1,7 @@
 package wsylp.log;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -12,7 +14,7 @@ import org.aspectj.lang.annotation.Before;
 @Aspect//切面
 public class MyLog {
 
-    protected Logger logger = Logger.getLogger(this.getClass());
+    private static Logger logger = LogManager.getLogger(MyLog.class.getName());
 
     @Before("execution(* wsylp.service..*(..))")//定义切面
     public void logBegin(JoinPoint point) {
