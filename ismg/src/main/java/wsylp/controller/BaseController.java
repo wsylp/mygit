@@ -24,23 +24,9 @@ public class BaseController {
         this.currentUser=(User)this.session.getAttribute("userMessage");
     }
 
-    //endregion
-
-    //region Paged
-    protected static final String CURRENTPAGE = "1";
-    protected static final Integer PAGE_SIZE = 2;
-
-    protected Integer getTotalPage(Integer pageSize, Integer total) {
-        return total / pageSize == 0 ? total / pageSize : total / pageSize + 1;
-    }
-
-//    protected PageResult getPageResult(HttpServletRequest request, Integer currentPage, Page page,
-//        List list) {
-//        Integer total = Integer.valueOf(String.valueOf(page.getTotal()));
-//        Integer totalPage =getTotalPage(PAGE_SIZE,total);
-//        PageResult pageResult = new PageResult(currentPage, PAGE_SIZE, list, total, totalPage,request.getQueryString());
-//        return pageResult;
-//    }
-    //endregion
+ public HttpServletResponse getResponse(){
+        response.setCharacterEncoding("UTF-8");
+        return response;
+ }
 
 }
