@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSON;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
@@ -30,6 +32,7 @@ public class MusciController extends BaseController {
     private static Logger logger = LogManager.getLogger(MusciController.class.getName());
 
 
+
     /**
      * 音乐流行榜
      * @throws IOException
@@ -44,6 +47,16 @@ public class MusciController extends BaseController {
             e.printStackTrace();
         }
         return "index";
+    }
+    @RequestMapping("/music_getMusic.html")
+    public void getMusic() throws  IOException{
+
+        List<Music> musics = musicService.getMusic();
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("data",musics);
+        map.put("total",musics.size());
+        String json = JSON.toJSONString(map);
+        getResponse().getWriter().write(json);
     }
 
 

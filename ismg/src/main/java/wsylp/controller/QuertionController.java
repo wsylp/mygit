@@ -1,5 +1,7 @@
 package wsylp.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,8 @@ import wsylp.service.UserService;
 public class QuertionController extends BaseController {
 
     private static Logger logger = LogManager.getLogger(QuertionController.class.getName());
+
+
 
 
     @RequestMapping("/question_myQuestions.html")

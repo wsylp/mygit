@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSON;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
@@ -27,6 +29,8 @@ public class UserController extends BaseController {
     private static Logger logger = LogManager.getLogger(UserController.class.getName());
 
 
+
+
     /**
      * 注册用户
      */
@@ -38,14 +42,14 @@ public class UserController extends BaseController {
 
     @RequestMapping("/user_getLoginUser.html")
     public void getLoinUser() {
-        response.setCharacterEncoding("UTF-8");
+
         try {
             HttpSession session = request.getSession();
             User user = (User) session.getAttribute("user");
             HashMap<String, Object> map = new HashMap<String, Object>();
             map.put("user", user);
             String json = JSON.toJSONString(map);
-            response.getWriter().write(json);
+           response.getWriter().write(json);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -140,7 +144,7 @@ public class UserController extends BaseController {
 
 
     @RequestMapping("/user_userList.html")
-    public String myQuestionAndAnawer(){
+    public String myQuestionAndAnawer() {
         return "/user/userList";
     }
 

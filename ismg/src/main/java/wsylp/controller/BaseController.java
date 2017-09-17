@@ -12,11 +12,11 @@ import wsylp.po.User;
 public class BaseController {
     //region HttpRequest Response Session
     protected HttpServletRequest request;
-    protected HttpServletResponse response;
+    protected HttpServletResponse response ;
     protected HttpSession session;
     protected User currentUser;
 
-    @ModelAttribute
+   @ModelAttribute
     public void setReqAndRes(HttpServletRequest request, HttpServletResponse response){
         this.request = request;
         this.response = response;
@@ -28,5 +28,6 @@ public class BaseController {
         response.setCharacterEncoding("UTF-8");
         return response;
  }
+
 
 }
