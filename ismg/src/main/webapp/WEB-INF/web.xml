@@ -4,13 +4,18 @@
   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
   version="3.1">
 
+
+
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:spring-mybatis.xml</param-value>
+   <!-- ,classpath*:spring-cxf-rest.xml-->
+    <param-value>classpath:spring-m*.xml,classpath*:spring-cxf-rest.xml</param-value>
   </context-param>
+  <!-- spring监听器 -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
 
-
-  <!-- 编码过滤器 -->
   <filter>
     <filter-name>encodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -18,16 +23,19 @@
       <param-name>encoding</param-name>
       <param-value>UTF-8</param-value>
     </init-param>
+    <init-param>
+      <param-name>forceEncoding</param-name>
+      <param-value>true</param-value>
+    </init-param>
   </filter>
   <filter-mapping>
     <filter-name>encodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
-  <!-- spring监听器 -->
-  <listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-  </listener>
+
+
+
 
   <!-- 防止spring内存溢出监听器，比如quartz -->
   <listener>
@@ -47,6 +55,8 @@
   -->
 
   <!-- spring mvc servlet-->
+
+
   <servlet>
     <servlet-name>SpringMVC</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -78,4 +88,16 @@
       <page-encoding>UTF-8</page-encoding>
     </jsp-property-group>
   </jsp-config>
+
+
+
+  <servlet>
+    <servlet-name>CXFServlet</servlet-name>
+    <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CXFServlet</servlet-name>
+    <url-pattern>/ws/*</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -48,6 +48,7 @@ public class MusciController extends BaseController {
         }
         return "index";
     }
+    @ResponseBody
     @RequestMapping("/music_getMusic.html")
     public void getMusic() throws  IOException{
 
@@ -56,7 +57,7 @@ public class MusciController extends BaseController {
         map.put("data",musics);
         map.put("total",musics.size());
         String json = JSON.toJSONString(map);
-        getResponse().getWriter().write(json);
+        response.getWriter().write(json);
     }
 
 

@@ -175,6 +175,21 @@
         type="text/javascript"></script>
 <script src="resources/layout/moment/moment-with-locales.js"></script>
 <script src="resources/js/music/musicPopular.js"></script>
+<script>
+  $(function() {
+    $.ajax({
+      type: 'get',
+      url: 'http://localhost:8080/ismg/ws/rest/user',
+      dataType: 'jsonp',
+      jsonp: '_jsonp',
+      jsonpCallback: 'callback',
+      success: function(data) {
+       console.log(data);
+      }
+    });
+  });
+
+</script>
 </body>
 
 </html>

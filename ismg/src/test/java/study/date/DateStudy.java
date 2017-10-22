@@ -1,4 +1,4 @@
-package study;
+package study.date;
 
 import java.time.Clock;
 import java.time.Instant;

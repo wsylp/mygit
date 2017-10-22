@@ -86,4 +86,33 @@ dependencies {
 
     compile group: 'org.mybatis', name: 'mybatis-typehandlers-jsr310', version: '1.0.2'
 
+    //redis
+    compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
+    compile group: 'org.apache.commons', name: 'commons-pool2', version: '2.4.2'
+
+//    //cxf 依赖
+  //  compile group: 'org.apache.cxf', name: 'apache-cxf', version: '3.2.0', ext: 'pom'
+    compile group: 'org.apache.cxf', name: 'cxf-rt-frontend-jaxws', version: '3.2.0'
+   // compile group: 'org.apache.cxf', name: 'cxf-rt-transports-http-jetty', version: '3.2.0'
+    //compile group: 'org.apache.cxf', name: 'cxf-rt-transports-http', version: '3.2.0'
+    // compile group: 'org.apache.cxf', name: 'cxf-rt-bindings-soap', version: '3.2.0'
+    // compile group: 'org.apache.cxf', name: 'cxf-rt-databinding-jaxb', version: '3.2.0'
+    //compile group: 'org.apache.cxf', name: 'cxf-rt-bindings-xml', version: '3.2.0'
+    // https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-ws-addr
+   // compile group: 'org.apache.cxf', name: 'cxf-rt-ws-addr', version: '3.2.0'
+
+    //REST
+    // https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-extension-providers
+    compile group: 'org.apache.cxf', name: 'cxf-rt-rs-extension-providers', version: '3.2.0'
+// https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-security-cors
+
+    compile group: 'org.apache.cxf', name: 'cxf-rt-rs-security-cors', version: '3.2.0'
+
+    compile group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider', version: '2.9.2'
+
+
+
+
+
+
 }
